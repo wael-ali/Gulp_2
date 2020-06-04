@@ -49,5 +49,16 @@ function cacheBustTask() {
   ;
 }
 // Watch task 
-
+function watchTask() {
+  watch(
+    [pathes.src.scss, pathes.src.js],// watch the changes on the scss and js files.  
+    parallel(scssTask, jsTask) // these task will run simultaneously
+  );
+}
 // default task
+// this will run only by typing gthe gulp command in terminal
+exports.default = series(
+  parallel(scssTask, jsTask),
+  cacheBustTask,
+  watchTask
+);
