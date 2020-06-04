@@ -13,6 +13,7 @@ const pathes = {
   src: {
     scss: 'src/scss/**/*.scss',
     js: 'src/js/**/*.js',
+    entryHtml: 'index.html'
   },
   dest: {
     css: 'dist/css',
@@ -40,7 +41,13 @@ function jsTask() {
   ;
 }
 // Cachebusting task
-
+const cbString = new Date().getTime();
+function cacheBustTask() {
+  return src([pathes.src.entryHtml]) // get the index.html file
+    .pipe(replace(/cb=\d+/g, 'cb=' + cbString)) // replace the cb=123 in the link query so that the browser reload the file.
+    .pipe(dest('.'))
+  ;
+}
 // Watch task 
 
 // default task
