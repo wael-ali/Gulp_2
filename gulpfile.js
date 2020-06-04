@@ -9,7 +9,10 @@
   const sourcemaps    = require("gulp-sourcemaps");
   const uglify        = require("gulp-uglify");
 // File path variables
-
+const pathes = {
+  scss: 'src/scss/**/*.scss',
+  js: 'src/js/**/*.js',
+}
 // Sass task
 
 // JS task
