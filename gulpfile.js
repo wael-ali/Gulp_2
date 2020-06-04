@@ -24,7 +24,8 @@ const pathes = {
 function scssTask() {
   return src(pathes.src.scss) // get all scss files
     .pipe(sourcemaps.init()) // should be run before the sass function
-    .pipe(sass()) // compile the scss files into css
+    .pipe(sass())// compile the scss files into css
+    .on('error', (err) => console.log(err)) 
     .pipe(postcss([autoprefixer(), cssnano()])) // put prefixes + minify css
     .pipe(sourcemaps.write('.')) // finish maping css and write the map in same directory
     .pipe(dest(pathes.dest.css)) // save it in the destination
