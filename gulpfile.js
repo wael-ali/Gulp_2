@@ -15,8 +15,8 @@ const pathes = {
     js: 'src/js/**/*.js',
   },
   dest: {
-    css: 'dist/css/main.css',
-    js: 'dist/js/main.js',
+    css: 'dist/css',
+    js: 'dist/js',
   }
 }
 // Sass task
@@ -26,12 +26,19 @@ function scssTask() {
     .pipe(sass()) // compile the scss files into css
     .pipe(postcss([autoprefixer(), cssnano()])) // put prefixes + minify css
     .pipe(sourcemaps.write('.')) // finish maping css and write the map in same directory
-    .pipe(dest(pathes.dest.css))
+    .pipe(dest(pathes.dest.css)) // save it in the destination
   ;
 }
 
 // JS task
+function jsTask() {
+  return src(pathes.src.js) // get all js files
+    .pipe(concat('main.js')) // put them in one file
+    .pipe(uglify()) // minify/uglify the js file
+    .pipe(dest(pathes.dest.js)) // save it in the destination
 
+  ;
+}
 // Cachebusting task
 
 // Watch task 
