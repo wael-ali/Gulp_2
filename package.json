@@ -1,0 +1,11 @@
+{
+  "name": "gulp_2",
+  "version": "1.0.0",
+  "description": "Gulp \r - Make sure that you have node.js installed\r - install Gulp globlay: npm install -g gulp\r - initialize project: npm init",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
