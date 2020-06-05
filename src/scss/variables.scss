@@ -1,0 +1,8 @@
+$redfontColor: red;
+
+.green {
+  color: green;
+}
+.blue {
+  color: saturate($color: #000000, $amount: 0);
+}

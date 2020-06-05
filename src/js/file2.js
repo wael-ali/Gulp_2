@@ -1,0 +1,1 @@
+console.log("hi gulp from file 2");
